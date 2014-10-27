@@ -141,8 +141,14 @@ public class MainActivity extends Activity {
 
         // Use the same size for recording profile.
         CamcorderProfile profile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
-        profile.videoFrameWidth = optimalSize.width;
-        profile.videoFrameHeight = optimalSize.height;
+
+//        profile.videoFrameWidth = optimalSize.width;
+//        profile.videoFrameHeight = optimalSize.height;
+
+        Camera.Size size = mSupportedPreviewSizes.get(mSupportedPreviewSizes.size() - 1);
+        profile.videoFrameWidth = size.width;
+        profile.videoFrameHeight = size.height;
+
 
         // likewise for the camera object itself.
         parameters.setPreviewSize(profile.videoFrameWidth, profile.videoFrameHeight);
